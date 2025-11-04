@@ -1,0 +1,9 @@
+package com.anik.contact_manager;
+
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+@RequestMapping("/api/contacts")
+public class ContactController {
+}
