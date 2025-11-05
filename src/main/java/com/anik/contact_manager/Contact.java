@@ -19,7 +19,7 @@ public class Contact extends BaseEntity{
     @JsonProperty("phone_number")
     String phoneNumber;
     String email;
-    boolean inactive;
+    boolean isActive;
     String category;
 
     @Column(name = "created_at", nullable = false, updatable = false)

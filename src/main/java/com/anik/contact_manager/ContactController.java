@@ -35,8 +35,8 @@ public class ContactController {
         return ResponseEntity.ok(contactService.getContactsByName(name));
     }
     @GetMapping("/count-inactive")
-    public ResponseEntity<Long> getInactiveContactsCount() {
-        return ResponseEntity.ok(contactService.getInactiveContactsCount(true));
+    public ResponseEntity<Long> getIsActiveContactsCount() {
+        return ResponseEntity.ok(contactService.getIsActiveContactsCount(true));
     }
 
     @GetMapping("/search/category")

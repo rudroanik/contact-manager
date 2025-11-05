@@ -25,7 +25,7 @@ public class ContactService {
         return contactRepository.findByFirstNameIgnoreCase(name);
     }
 
-    public long getInactiveContactsCount(boolean inactive) {
-        return contactRepository.countByInactive(inactive);
+    public long getIsActiveContactsCount(boolean isActive) {
+        return contactRepository.countByActive(isActive);
     }
 }
