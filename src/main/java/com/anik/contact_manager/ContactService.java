@@ -1,6 +1,8 @@
 package com.anik.contact_manager;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -27,5 +29,14 @@ public class ContactService {
 
     public long getIsActiveContactsCount(boolean isActive) {
         return contactRepository.countByActive(isActive);
+    }
+    public List<ContactFirstNameEmail> getContactByCategory(String category) {
+        return contactRepository.getContactByCategory(category);
+    }
+    public Page<ContactProjection> getAllContact(Pageable pageable) {
+        return contactRepository.findAllByActiveTrue(pageable);
+    }
+    public void deleteContactsByPrefix(String prefix) {
+         contactRepository.deleteByPhoneNumberStartingWith(prefix);
     }
 }

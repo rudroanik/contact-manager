@@ -1,6 +1,9 @@
 package com.anik.contact_manager;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -31,26 +34,27 @@ public class ContactController {
     }
 
     @GetMapping("/search/name")
-    public ResponseEntity<List<Contact>> getContactsByName(@RequestParam String name) {
+    public ResponseEntity<List<Contact>> getContactsByName(@RequestParam("term") String name) {
         return ResponseEntity.ok(contactService.getContactsByName(name));
     }
     @GetMapping("/count-inactive")
     public ResponseEntity<Long> getIsActiveContactsCount() {
-        return ResponseEntity.ok(contactService.getIsActiveContactsCount(true));
+        return ResponseEntity.ok(contactService.getIsActiveContactsCount(false));
     }
 
     @GetMapping("/search/category")
-    public ResponseEntity<List<Contact>> getContactsByCategory(@RequestParam String category) {
-        return ResponseEntity.ok(Collections.emptyList());
+    public ResponseEntity<List<ContactFirstNameEmail>> getContactsByCategory(@RequestParam("name") String category) {
+        return ResponseEntity.ok(contactService.getContactByCategory(category));
     }
 
     @GetMapping("/active/page")
-    public ResponseEntity<List<Contact>> getActiveContact() {
-        return ResponseEntity.ok(Collections.emptyList());
+    public ResponseEntity<Page<ContactProjection>> getActiveContact(@RequestParam int page, @RequestParam int size) {
+        return ResponseEntity.ok(contactService.getAllContact(PageRequest.of(page, size, Sort.by("lastName").ascending())));
     }
 
     @DeleteMapping("/delete-by-prefix")
     public ResponseEntity<Contact> deleteContactByPrefix(@RequestParam String prefix) {
+        contactService.deleteContactsByPrefix(prefix);
         return ResponseEntity.notFound().build();
     }
 }
