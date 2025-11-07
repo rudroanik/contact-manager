@@ -1,4 +1,4 @@
-package com.anik.contact_manager;
+package com.anik.contact_manager.entity;
 
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;

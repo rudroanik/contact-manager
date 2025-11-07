@@ -1,5 +1,8 @@
-package com.anik.contact_manager;
+package com.anik.contact_manager.repository;
 
+import com.anik.contact_manager.entity.Contact;
+import com.anik.contact_manager.entity.ContactFirstNameEmail;
+import com.anik.contact_manager.entity.ContactProjection;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;

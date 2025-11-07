@@ -1,4 +1,4 @@
-package com.anik.contact_manager;
+package com.anik.contact_manager.entity;
 
 public interface ContactProjection {
     String getFirstName();

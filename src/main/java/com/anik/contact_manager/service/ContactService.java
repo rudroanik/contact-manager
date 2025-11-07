@@ -1,5 +1,9 @@
-package com.anik.contact_manager;
+package com.anik.contact_manager.service;
 
+import com.anik.contact_manager.repository.ContactRepository;
+import com.anik.contact_manager.entity.Contact;
+import com.anik.contact_manager.entity.ContactFirstNameEmail;
+import com.anik.contact_manager.entity.ContactProjection;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -13,7 +17,7 @@ import java.util.Optional;
 public class ContactService {
     private final ContactRepository contactRepository;
 
-    public  Contact addContact (Contact contact) {
+    public Contact addContact (Contact contact) {
         return contactRepository.save(contact);
     }
     public List<Contact> saveAllContact(List<Contact> contacts) {

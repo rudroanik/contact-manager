@@ -1,4 +1,4 @@
-package com.anik.contact_manager;
+package com.anik.contact_manager.entity;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
@@ -8,7 +8,7 @@ import java.time.LocalDateTime;
 
 @Entity
 @Data
-public class Contact extends BaseEntity implements Auditable{
+public class Contact extends BaseEntity implements Auditable {
 
     @JsonProperty("first_name")
     String firstName;
