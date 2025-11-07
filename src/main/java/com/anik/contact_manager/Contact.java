@@ -8,8 +8,7 @@ import java.time.LocalDateTime;
 
 @Entity
 @Data
-
-public class Contact extends BaseEntity{
+public class Contact extends BaseEntity implements Auditable{
 
     @JsonProperty("first_name")
     String firstName;
@@ -21,8 +20,5 @@ public class Contact extends BaseEntity{
     String email;
     boolean isActive;
     String category;
-
-    @Column(name = "created_at", nullable = false, updatable = false)
-    @JsonProperty("creation_date")
-    LocalDateTime creationDate=LocalDateTime.now();
+    LocalDateTime creationDate;
 }
